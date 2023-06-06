@@ -16,7 +16,7 @@ public class QLearning {
     private int stateI;
     private int stateJ;
 
-    public QLearning() {
+    public QLearning(int grid[][]) {
         actions = new int[][]{
                 {0,-1}, //G
                 {0,1}, //D
@@ -24,11 +24,7 @@ public class QLearning {
                 {-1,0} //H
         };
 
-        grid = new int[][]{
-                {0,0,1},
-                {0,-1,0},
-                {0,0,0}
-        };
+        this.grid =grid ;
     }
 
     public void run(){
@@ -48,12 +44,12 @@ public class QLearning {
         }
     }
 
-    private void resetState(){
+    public void resetState(){
         stateI = 2;
         stateJ = 0;
     }
 
-    private int chooseAction(double eps){
+    public int chooseAction(double eps){
         Random random = new Random();
         double bestQ = 0;
         int act = 0;
@@ -73,9 +69,25 @@ public class QLearning {
         return act;
     }
 
-    private int executeAction(int act){
+    public int executeAction(int act){
         stateI = Math.max(0, Math.min(actions[act][0]+stateI, 2));
         stateJ = Math.max(0, Math.min(actions[act][1]+stateJ, 2));
         return stateI*GRID_SIZE + stateJ;
+    }
+
+    public int getStateI() {
+        return stateI;
+    }
+
+    public int getStateJ() {
+        return stateJ;
+    }
+
+    public void setStateI(int stateI) {
+        this.stateI = stateI;
+    }
+
+    public void setStateJ(int stateJ) {
+        this.stateJ = stateJ;
     }
 }

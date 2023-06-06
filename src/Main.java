@@ -14,18 +14,20 @@ public class Main extends Application {
         root.setPrefHeight(300);
         Rectangle rectangle[][]=new Rectangle[3][3];
 
-//        rectangle[0][0]=new Rectangle();
-//        rectangle[0][0].setLayoutX(0);
-//        rectangle[0][0].setLayoutY(0);
-//        rectangle[0][0].setFill(Color.BLUE);
-//        rectangle[0][0].setWidth(50);
-//        rectangle[0][0].setHeight(50);
-//
+
+
+
+
         int gameGrid [][]=new int[][]{
                 {0,0,0},
                 {0,-1,0},
                 {0,0,1}
             };
+
+        //qlearning algorithm
+        QLearning qLearning=new QLearning(gameGrid);
+
+
         for(int i=0;i<3;i++){
             for (int j=0;j<3;j++){
                 rectangle[i][j]=new Rectangle();
@@ -45,6 +47,30 @@ public class Main extends Application {
                 root.getChildren().add(rectangle[i][j]);
             }
         }
+
+
+
+            int it = 0;
+            qLearning.resetState();
+            int currentState;
+            int nextState;
+
+        System.out.println("first: "+qLearning.getStateI()+" "+qLearning.getStateJ()*50);
+
+
+
+
+
+        while (it<30){
+            currentState = qLearning.getStateI()* 3 + qLearning.getStateJ();
+            int act = qLearning.chooseAction(currentState);
+            rectangle[qLearning.getStateJ()][qLearning.getStateI()].setFill(Color.GOLD);
+            System.out.println(qLearning.getStateI() + " " + qLearning.getStateJ() + " " + gameGrid[qLearning.getStateI()][qLearning.getStateJ()]);
+            it++;
+        }
+
+
+
 
 
 
