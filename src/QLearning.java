@@ -7,7 +7,7 @@ public class QLearning {
     private final double ALPHA = 0.1;
     private final double GAMMA = 0.9;
     private final int MAX_EPOCH = 200;
-    private final int GRID_SIZE = 3;
+    private final int GRID_SIZE = 6;
     private final int ACTIONS_SIZE = 4;
 
     private int[][] grid = new int[GRID_SIZE][GRID_SIZE];
@@ -70,8 +70,8 @@ public class QLearning {
     }
 
     public int executeAction(int act){
-        stateI = Math.max(0, Math.min(actions[act][0]+stateI, 2));
-        stateJ = Math.max(0, Math.min(actions[act][1]+stateJ, 2));
+        stateI = Math.max(0, Math.min(actions[act][0]+stateI, 6));
+        stateJ = Math.max(0, Math.min(actions[act][1]+stateJ, 6));
         return stateI*GRID_SIZE + stateJ;
     }
 
