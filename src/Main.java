@@ -81,8 +81,7 @@ public class Main extends Application {
                     else
                         rectangle[qLearning.getStateJ()][qLearning.getStateI()].setFill(Color.WHITE);
                     currentState = qLearning.getStateI()*6 + qLearning.getStateJ();
-//                    if(rectangle[qLearning.getStateJ()][qLearning.getStateI()].getFill()!=Color.RED)
-//                        rectangle[qLearning.getStateJ()][qLearning.getStateI()].setFill(Color.WHITE);
+
                     int act = qLearning.chooseAction(currentState);
                     nextState = qLearning.executeAction(act);
                     rectangle[qLearning.getStateJ()][qLearning.getStateI()].setFill(Color.GOLD);

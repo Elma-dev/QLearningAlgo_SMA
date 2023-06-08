@@ -45,7 +45,7 @@ public class QLearning {
     }
 
     public void resetState(){
-        stateI = 2;
+        stateI = 5;
         stateJ = 0;
     }
 
@@ -70,8 +70,8 @@ public class QLearning {
     }
 
     public int executeAction(int act){
-        stateI = Math.max(0, Math.min(actions[act][0]+stateI, 6));
-        stateJ = Math.max(0, Math.min(actions[act][1]+stateJ, 6));
+        stateI = Math.max(0, Math.min(actions[act][0]+stateI, 5));
+        stateJ = Math.max(0, Math.min(actions[act][1]+stateJ, 5));
         return stateI*GRID_SIZE + stateJ;
     }
 

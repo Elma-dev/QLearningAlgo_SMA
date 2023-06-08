@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="application" />
+    <orderEntry type="library" name="libJade" level="application" />
   </component>
 </module>
